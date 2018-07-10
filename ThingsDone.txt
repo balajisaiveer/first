@@ -1,0 +1,9 @@
+Things Done:
+
+(1) I integrated The mysql database 
+(2) During Registration the user's data is stored in the a table(mytable) in mysql 
+(3) Later during the login I check the given details with that of present in the table and allow the user to proceed
+(4) I also generated Allusers functionality where the data of all users is displayed(idea is to bring data from mysqldb to the webbrowser)
+(5) I created the newtransaction functionality which takes the transaction details and stores the data in a new table(transactions).
+
+
