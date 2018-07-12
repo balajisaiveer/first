@@ -1,12 +1,80 @@
 package com.balaji.modal;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="transactions")
-public class Transaction {
+@Table(name="finaltransaction")
+public class Transaction{
+	
+	@Id
+	@Column(name="Id")
+	private int id;
+	@Column(name="rusername")	
+	private String rusername;
+	@Column(name="sendername")
+	private String sendername;
+	@Column(name="amount")
+	private int amount;
+	
+	
+	public Transaction() {
+		
+	}
+	
+	/*public Transaction(String sendername,int amount) {
+		super();
+		this.sendername = sendername;
+		this.amount = amount;
+	}*/
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+	
+	public String getRusername() {
+		return rusername;
+	}
+
+	public void setRusername(String rusername) {
+		this.rusername = rusername;
+	}
+	
+	public String getSendername() {
+		return sendername;
+	}
+
+	public void setSendername(String sendername) {
+		this.sendername = sendername;
+	}
+
+	
+
+	public int getAmount() {
+		return amount;
+	}
+
+	public void setAmount(int amount) {
+		this.amount = amount;
+	}
+
+	/*@Override
+	public String toString() {
+		return "Transaction [sendername=" + sendername + ", rusername=" + rusername + ", amount=" + amount + "]";
+	}*/
+
+	
+}
+
+
+
+
+/*public class Transaction {
 	
 	@Id
 	private int tid;
@@ -61,13 +129,4 @@ public class Transaction {
 		return "Transaction [tamount=" + tamount + ", idrecv=" + idrecv + ", tstaus=" + tstaus + ", tid=" + tid
 				+ ", idsend=" + idsend + "]";
 	}
-		
-	
-
-	
-	
-	
-	
-	
-
-}
+}*/

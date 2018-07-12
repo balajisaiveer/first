@@ -1,5 +1,5 @@
 <!DOCTYPE html >
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="d"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 <head>
 <meta charset="utf-8">
@@ -17,6 +17,8 @@
 
 </head>
 <body>
+	<c:choose>
+	<c:when test="${mode=='MODE_NEWTRANSACTION'}">
 	<div role="navigation">
 		<div class="navbar navbar-inverse">
 			<a href="/login-user" class="navbar-brand">Home</a>
@@ -69,7 +71,8 @@
 		</div>
 		</form>
 	</div>
-	
+	</c:when>
+	</c:choose> 
 	<!-- Optional JavaScript -->
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
 	<script src="static/js/jquery-1.11.1.min.js"></script>

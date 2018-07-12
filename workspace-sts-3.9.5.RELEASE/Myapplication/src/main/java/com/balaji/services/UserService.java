@@ -26,6 +26,7 @@ public class UserService {
 		
 		userRepository.save(user);
 	}
+	/*
 	
 	public List<User> showAllUsers(){
 	List<User> users = new ArrayList<User>(); 
@@ -34,9 +35,9 @@ public class UserService {
 	}
 		
 	return users;
-	}
+	}*/
 	
-	public void deleteMyUser(int id) {
+	/*public void deleteMyUser(int id) {
 		userRepository.deleteById(id);
 		
 	}
@@ -46,7 +47,7 @@ public class UserService {
 	}
 	public User findByUsernameAndPassword(String username,String password) {
 		return userRepository.findByUsernameAndPassword(username, password);
-	}
+	}*/
 	
 	
 	

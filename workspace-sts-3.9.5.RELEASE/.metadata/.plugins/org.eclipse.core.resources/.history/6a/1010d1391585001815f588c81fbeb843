@@ -1,0 +1,40 @@
+package com.balaji.controller;
+
+public class Users {
+	
+	int id;
+	String username;
+	String password;
+	
+	public Users()
+	{}
+	
+	public Users(int id,String username,String password)
+	{
+		super();
+		this.id=id;
+		this.username=username;
+		this.password=password;
+	}
+
+	public String getUname()
+	{
+		return username;
+	}
+	public void setUname(String username)
+	{
+		this.username=username;
+	}
+
+	public String getPassword()
+	{
+		return password;
+	}
+	
+	public void setPassword(String password)
+	{
+		this.password=password;
+	}
+}
+
+

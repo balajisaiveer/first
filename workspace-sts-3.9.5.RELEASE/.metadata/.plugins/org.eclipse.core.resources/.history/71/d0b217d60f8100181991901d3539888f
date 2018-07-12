@@ -1,0 +1,1 @@
+spring.mvc.prefix=/WEB-INF/view

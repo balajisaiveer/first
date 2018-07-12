@@ -1,0 +1,25 @@
+package com.balaji.services;
+
+import javax.transaction.Transactional;
+
+import org.springframework.stereotype.Service;
+
+import com.balaji.modal.User;
+import com.balaji.repository.UserRepository;
+
+@Service
+@Transactional
+public class UserService {
+
+	private final UserRepository userRepository;
+	
+	public UserService(UserRepository userRepository) {
+		this.userRepository=userRepository;
+		
+	}
+	
+	public void saveMyUser(User user) {
+		
+		userRepository.save(user);
+	}
+}

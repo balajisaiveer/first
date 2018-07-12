@@ -200,11 +200,6 @@
 	</form>
 	</div>
 	</c:when>
-	
-		
-	
-	
-	
 	</c:choose>		
 	
 	

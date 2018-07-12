@@ -1,0 +1,9 @@
+package com.balaji.modal;
+
+public class User {
+
+	private int id;
+	private String username;
+	
+	
+}

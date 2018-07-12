@@ -1,0 +1,5 @@
+package com.balaji.controller;
+
+public class RestController {
+
+}
