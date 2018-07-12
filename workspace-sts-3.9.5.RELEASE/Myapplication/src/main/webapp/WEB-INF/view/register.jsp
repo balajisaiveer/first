@@ -16,7 +16,7 @@ h1,h2,h3,h4,h5,h6 {
 
 <div class="w3-container w3-padding-64" id="contact">
     <h3>Please Enter Your Details ~</h3><br>
-    <form action="/register" method="post">
+    <form action="/firstproject/register" method="post">
       <p><input class="w3-input w3-padding-16" type="text" placeholder="UserName" required name="username"></p>
       <p><input class="w3-input w3-padding-16" type="password" placeholder="Password" required name="password"></p>
       <p><button class="w3-button w3-light-grey w3-section" type="submit">SIGNUP</button></p>

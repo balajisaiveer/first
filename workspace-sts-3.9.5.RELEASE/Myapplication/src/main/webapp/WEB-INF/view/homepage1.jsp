@@ -21,12 +21,12 @@
 	<c:when test="${mode=='MODE_NEWTRANSACTION'}">
 	<div role="navigation">
 		<div class="navbar navbar-inverse">
-			<a href="/login-user" class="navbar-brand">Home</a>
+			<a href="/firstproject/login-user" class="navbar-brand">Home</a>
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
-					<li><a href="/transactionhistory">Transactionhistory</a></li>
-					<li><a href="/login-user/newtransaction">NewTransaction</a></li>
-					<li><a href="/balance">Balance</a></li>
+					<li><a href="/firstproject/transactionhistory">Transactionhistory</a></li>
+					<li><a href="/firstproject/login-user/newtransaction">NewTransaction</a></li>
+					<li><a href="/firstproject/balance">Balance</a></li>
 				</ul>
 			</div>
 		</div>
@@ -41,7 +41,7 @@
 	<div class="container text-center">
 		<h3>New Transaction</h3>
 		<hr>
-		<form class="form-horizontal" method="POST" action="/login-user/">
+		<form class="form-horizontal" method="POST" action="/firstproject/login-user/">
 		<div class="form-group">
 		<label class="control-label col-md-3">tamount</label>
 		<div class="col-md-7">

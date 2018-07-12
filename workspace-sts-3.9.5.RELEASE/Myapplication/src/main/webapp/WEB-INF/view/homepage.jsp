@@ -22,9 +22,9 @@
 		<div class="navbar navbar-inverse">
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
-					<li><a href="/transactionhistory">Transactionhistory</a></li>
-					<li><a href="/login-user/newtransaction">NewTransaction</a></li>
-					<li><a href="/balance">Balance</a></li>
+					<li><a href="/fistproject/transactionhistory">Transactionhistory</a></li>
+					<li><a href="/fistproject/login-user/newtransaction">NewTransaction</a></li>
+					<li><a href="/fistproject/balance">Balance</a></li>
 				</ul>
 			</div>
 		</div>

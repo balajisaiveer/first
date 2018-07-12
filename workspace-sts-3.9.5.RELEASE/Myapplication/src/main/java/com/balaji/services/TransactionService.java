@@ -38,14 +38,14 @@ public class TransactionService {
 			
 		return transactions;
 		}	
-	public List<Transaction> showAllidTransactions(Principal principal){
+		public List<Transaction> showAllidTransactions(Principal principal){
 		String name = principal.getName();
-		System.out.println("principal:"+name);	
+		//System.out.println("principal:"+name);	
 		List<Transaction> idtransactions = new ArrayList<Transaction>(); 
 		for(Transaction idtransaction:transactionRepository.findAlls()) {
 			if(idtransaction.getSendername().equalsIgnoreCase(name)) {
 				idtransactions.add(idtransaction);
-				System.out.println(idtransaction.getSendername());
+				//System.out.println(idtransaction.getSendername());
 				}
 		}
 		return idtransactions;

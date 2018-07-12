@@ -20,13 +20,13 @@ h1,h2,h3,h4,h5,h6 {
 <!-- Navbar (sit on top) -->
 <div class="w3-top">
   <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px;">
-    <a href="/" class="w3-bar-item w3-button">WEBAPPLICATION</a>
+    <a href="/firstproject/" class="w3-bar-item w3-button">WEBAPPLICATION</a>
     <!-- Right-sided navbar links. Hide them on small screens -->
     <div class="w3-right w3-hide-small">
-    <a href="/view-balance" class="w3-bar-item w3-button">View-Balance</a>
-    <a href="/newtransaction" class="w3-bar-item w3-button">New-Transaction</a>
-    <a href="/view-transactions" class="w3-bar-item w3-button">View-Transactions</a>
-		<a href="/app-logout" class="w3-bar-item w3-button">LOGOUT</a>
+    <a href="/firstproject/view-balance" class="w3-bar-item w3-button">View-Balance</a>
+    <a href="/firstproject/newtransaction" class="w3-bar-item w3-button">New-Transaction</a>
+    <a href="/firstproject/view-transactions" class="w3-bar-item w3-button">View-Transactions</a>
+		<a href="/firstproject/app-logout" class="w3-bar-item w3-button">LOGOUT</a>
     </div>
   </div>
 </div>

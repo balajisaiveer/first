@@ -89,7 +89,7 @@
 	<div class="container text-center">
 		<h3>New Registration</h3>
 		<hr>
-		<form class="form-horizontal" method="POST" action="save-user">
+		<form class="form-horizontal" method="POST" action="/firstproject/save-user">
 		<input type="hidden" name="id" value="${user.id }" />
 		<div class="form-group">
 		<label class="control-label col-md-3">Username</label>
@@ -175,7 +175,7 @@
 	<div class="container text-center">
 		<h3>User Login</h3>
 		<hr>
-		<form class="form-horizontal" method="POST" action="/login-user">
+		<form class="form-horizontal" method="POST" action="/firstproject/login-user">
 		<c:if test="${not empty error}">
 		<div class="alert alert-danger">
 			<c:out value="${error}">

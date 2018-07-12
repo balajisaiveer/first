@@ -16,7 +16,7 @@ h1,h2,h3,h4,h5,h6 {
 
 <div class="w3-container w3-padding-64" id="contact">
     <h3>Please Enter Your Transaction Details ~</h3><br>
-    <form action="/newtransaction" method="post">
+    <form action="/firstproject/newtransaction" method="post">
       <p><input class="w3-input w3-padding-16" type="text" placeholder="RevicerUserName" required name="rusername"></p>
       <p><input class="w3-input w3-padding-16" type="text" placeholder="SenderUserName" required name="sendername" value="${name}" readonly> </p>
       <p><input class="w3-input w3-padding-16" type="number" placeholder="Amount" required name="amount"></p>

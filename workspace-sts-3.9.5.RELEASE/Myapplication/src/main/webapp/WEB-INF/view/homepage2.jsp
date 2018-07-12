@@ -21,7 +21,7 @@
 		<div class="navbar navbar-inverse">
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
-					<li><a href="/">Go BACK</a></li>
+					<li><a href="/firstproject/">Go BACK</a></li>
 				</ul>
 			</div>
 		</div>
