@@ -71,7 +71,7 @@ public class Applicationcontroller {
 		else
 		{
 			model.addAttribute("error",  "Invalid credentials or UserName is already taken! please choose another one.");
-			return "register";
+			return "register";    
 		}
 		
 	}
