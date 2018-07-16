@@ -154,19 +154,41 @@ public class Applicationcontroller {
 	}	
 	
 	@RequestMapping(value="/newtransaction",method = RequestMethod.POST)
-	public String registerTransaction(@ModelAttribute("transaction") Transaction transaction,BindingResult bindingResult,HttpServletRequest request) {
+	public String registerTransaction(@ModelAttribute("transaction") Transaction transaction,BindingResult bindingResult,HttpServletRequest request,Principal principal) {
 		//request.setAttribute("mode","MODE_AFTERTRANSACTION");
 	 	//System.out.println(transaction.getRusername()+" "+transaction.getSendername()+" "+transaction.getAmount());
 		//System.out.println(transactionService.showAllTransactions());
+		User senderuser1 = new User();
+		User reciveruser1 = new User();
+		List<User> users = new ArrayList<User>(); 
+		List<User> reciverusers = new ArrayList<User>(); 
+		users = userRepository.findByUsername(principal.getName());
+		int b=0;
+		for ( User u : users) {
+			senderuser1 = u;
+			b=u.getBalance();
+		}
+		reciverusers = userRepository.findByUsername(transaction.getRusername());
+		int c=0;
+		for ( User u : reciverusers) {
+			reciveruser1 = u;
+			c = u.getBalance();
+		}
 		if(userRepository.findByUsername(transaction.getRusername()).isEmpty())
 		{
 			return "transactionfailure";
 		}
-		else {
-			
+		else if (b>=transaction.getAmount())
+		{
+		b = b-transaction.getAmount();
+		c = c+transaction.getAmount();
+		senderuser1.setBalance(b);
+		reciveruser1.setBalance(c);
 	 	transactionRepository.save(transaction);
 		return "home";
-
+		}
+		else {
+			return "transactionbalancefailure";
 		}
 				
 		//transactionService.saveMyTransaction(transaction);

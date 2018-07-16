@@ -15,10 +15,10 @@ h1,h2,h3,h4,h5,h6 {
 
 
 <div>
-<h4>${answer} </h4>
-
-<form action="/firstproject/login" method="get">
-<p><button class="w3-button w3-light-grey w3-section" type="submit">BACK TO LOGIN PAGE</button></p>
+<h2>TRANSACTION FAILURE</h2>
+<h4>Insufficient funds</h4>
+<form action="/firstproject/" method="get">
+<p><button class="w3-button w3-light-grey w3-section" type="submit">BACK TO HOME</button></p>
 </form>
 
 
