@@ -1,7 +1,0 @@
-package com.balaji.services;
-
-import com.balaji.repository.TransactionRepository;
-
-public class TransactionService {
-	private final TransactionRepository transactionRepository; 
-} 

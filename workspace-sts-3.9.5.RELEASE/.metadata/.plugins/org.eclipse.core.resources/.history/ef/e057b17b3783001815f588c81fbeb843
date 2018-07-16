@@ -1,6 +1,0 @@
-package com.balaji.controller;
-
-@RestCo
-public class RestController {
-
-}

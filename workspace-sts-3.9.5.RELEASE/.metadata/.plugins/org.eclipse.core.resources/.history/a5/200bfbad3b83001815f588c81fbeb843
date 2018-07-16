@@ -1,6 +1,0 @@
-package com.balaji.services;
-
-@Service
-public class Userservice {
-
-}
