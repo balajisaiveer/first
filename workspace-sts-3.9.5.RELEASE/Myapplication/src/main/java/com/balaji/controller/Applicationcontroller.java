@@ -33,6 +33,8 @@ public class Applicationcontroller {
 	
 	@Autowired
 	UserRepository userRepository;
+	@Autowired
+	TransactionRepository transactionRepository;
 	
 	@Autowired 
 	private UserService userService; 
@@ -137,8 +139,18 @@ public class Applicationcontroller {
 		//request.setAttribute("mode","MODE_AFTERTRANSACTION");
 	 	//System.out.println(transaction.getRusername()+" "+transaction.getSendername()+" "+transaction.getAmount());
 		//System.out.println(transactionService.showAllTransactions());
-		transactionService.saveMyTransaction(transaction);
-		return "/home";
+		if(userRepository.findByUsername(transaction.getRusername()).isEmpty())
+		{
+			return "transactionfailure";
+		}
+		else {
+			
+	 	transactionRepository.save(transaction);
+		return "home";
+
+		}
+				
+		//transactionService.saveMyTransaction(transaction);
 	}
 	
 	
@@ -156,7 +168,7 @@ public class Applicationcontroller {
 	public String showAllTransactions(HttpServletRequest request) {
 		
 		request.setAttribute("transactions",transactionService.showAllTransactions());
-	return "homepage2";	
+		return "homepage2";	
 	}
 	@GetMapping("/view-transactions")
 	public String showAllidTransactions(HttpServletRequest request,Principal principal) {

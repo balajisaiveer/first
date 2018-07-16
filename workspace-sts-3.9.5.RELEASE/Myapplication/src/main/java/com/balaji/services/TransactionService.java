@@ -6,16 +6,23 @@ import java.util.List;
 import java.util.Optional;
 import javax.transaction.Transactional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.balaji.modal.Transaction;
 import com.balaji.modal.User;
 import com.balaji.repository.TransactionRepository;
+import com.balaji.repository.UserRepository;
 
 @Service
 @Transactional
 public class TransactionService {
 	
+	
+	
+	@Autowired
+	UserRepository userRepository;
+		
 	private final TransactionRepository transactionRepository; 
 	
 	public TransactionService(TransactionRepository transactionRepository) 
@@ -25,8 +32,15 @@ public class TransactionService {
 	
 	public void saveMyTransaction(Transaction transaction) {
 		
-	 	//System.out.println(transaction.getRusername()+" "+transaction.getSendername()+" "+transaction.getAmount());
-		transactionRepository.save(transaction);
+	 /*	System.out.println(transaction.getRusername()+" "+transaction.getSendername()+" "+transaction.getAmount());
+		if(userRepository.findByUsername(transaction.getRusername()).isEmpty())
+		{
+			
+		}
+		else {
+			
+	 	transactionRepository.save(transaction);
+		}*/
 	}
 
 	public List<Transaction> showAllTransactions(){
