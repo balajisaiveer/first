@@ -40,7 +40,7 @@ h1,h2,h3,h4,h5,h6 {
 
 
 <div class="w3-container w3-padding-64" id="contact">
-<h5>HI ${name} , Use Above Bar for any Activities<h5>
+<h5>HI ${name} , Use Above Bar for any Activities</h5>
 </div>
 
 <!-- ---------------------------------- -->

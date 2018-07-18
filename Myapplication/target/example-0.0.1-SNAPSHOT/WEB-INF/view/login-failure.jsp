@@ -16,7 +16,6 @@ h1,h2,h3,h4,h5,h6 {
 
 <div>
 <h2>LOGIN FAILURE</h2>
-
 <form action="/firstproject/login" method="get">
 <p><button class="w3-button w3-light-grey w3-section" type="submit">BACK TO LOGIN PAGE</button></p>
 </form>

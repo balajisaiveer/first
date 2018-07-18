@@ -50,6 +50,10 @@ tomcat(/tomcat/webapps/)<br>
 and start the tomcat container.<br>
 Start the tomcat container and hit.<br>
 
+OR<br>
+
+For deplying in the tomcat container download the war file in the target folder and give it's path in deploy option present in Tomcat/manager/html<br>
+
 http://localhost:8080/firstproject<br>
 in browser. Browser redirects you to home page of application<br>
 
