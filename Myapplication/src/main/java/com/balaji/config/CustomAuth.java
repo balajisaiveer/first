@@ -7,7 +7,6 @@ import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.AuthenticationException;
 import org.springframework.stereotype.Component;
 
 import com.balaji.modal.User;
@@ -22,9 +21,10 @@ public static String username = new String();
 UserRepository userrepository;
 
 	@Override
-	public Authentication authenticate(Authentication auth) throws AuthenticationException {
-		// TODO Auto-generated method stub
-		 username = auth.getName();
+	public Authentication authenticate(Authentication auth) {
+		
+
+		username = auth.getName();
 		String pass = auth.getCredentials().toString();
 		String password=new String();
 		if(userrepository.findByUsername(username).isEmpty()==false)
@@ -33,7 +33,7 @@ UserRepository userrepository;
 		for(User u:list)
 		 password = u.getPassword(); 
 		if(password.equals(pass))
-			return new UsernamePasswordAuthenticationToken(username,pass,Collections.EMPTY_LIST);
+			return new UsernamePasswordAuthenticationToken(username,pass,Collections.emptyList());
 		else
 			throw new BadCredentialsException("authentication failed");
 		
@@ -44,7 +44,6 @@ UserRepository userrepository;
 
 	@Override
 	public boolean supports(Class<?> auth) {
-		// TODO Auto-generated method stub
 		return auth.equals(UsernamePasswordAuthenticationToken.class);
 	}
 	

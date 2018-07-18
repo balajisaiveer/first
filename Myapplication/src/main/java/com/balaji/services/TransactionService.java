@@ -3,14 +3,14 @@ package com.balaji.services;
 import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
+//import java.util.Optional;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.balaji.modal.Transaction;
-import com.balaji.modal.User;
+//import com.balaji.modal.User;
 import com.balaji.repository.TransactionRepository;
 import com.balaji.repository.UserRepository;
 

@@ -16,7 +16,7 @@ public class Users {
 		super();
 		this.username=username;
 		this.password=password;
-		this.balance=balance;
+		//this.balance=balance;
 	}
 
 	public String getUsername()

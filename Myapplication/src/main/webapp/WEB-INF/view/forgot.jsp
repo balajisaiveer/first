@@ -14,7 +14,7 @@ h1,h2,h3,h4,h5,h6 {
 <!-- Navbar (sit on top) -->
 <div class="w3-top">
   <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px;">
-    <a href="/firstproject/" class="w3-bar-item w3-button">Tomato ~ The Food Ordering App</a>
+    <a href="/firstproject/" class="w3-bar-item w3-button">BANKING APPLICATION</a>
     <!-- Right-sided navbar links. Hide them on small screens -->
     <div class="w3-right w3-hide-small">
 		<a href="/firstproject/register" class="w3-bar-item w3-button">REGISTER</a>
@@ -27,7 +27,7 @@ h1,h2,h3,h4,h5,h6 {
 <div class="w3-container w3-padding-64" id="contact">
     <h3>ENTER USERNAME</h3><br>
     <form action="/firstproject/forgot-password" method="post">
-      <p><input class="w3-input w3-padding-16" type="text" placeholder="UserName" required name="uname"></p>
+      <p><input class="w3-input w3-padding-16" type="text" placeholder="UserName" required name="username"></p>
       
       <p><button class="w3-button w3-light-grey w3-section" type="submit">SUBMIT</button></p>
     </form>

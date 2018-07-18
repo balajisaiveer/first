@@ -1,18 +1,31 @@
 package com.balaji.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 
+@SuppressWarnings("deprecation")
 @Configuration
 @EnableWebSecurity
 public class SpringSecurityConfig extends WebSecurityConfigurerAdapter{
 
 	@Autowired 
 	CustomAuth custauth;
+	
+	
+//-----------------------------------------------------
+	/*Added specially to nullify the error that in spring security higher versions we need to specify the password encoder we are using*/
+	//Later if needed BCryptPasswordEncoder can be used for more security
+	@Bean
+	public static NoOpPasswordEncoder passwordEncoder() {
+	return (NoOpPasswordEncoder) NoOpPasswordEncoder.getInstance();
+	}
+//-----------------------------------------------------		
 	
 	@Override
 	public void configure (AuthenticationManagerBuilder auth) throws Exception
@@ -21,9 +34,9 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter{
 		auth.authenticationProvider(custauth);
         auth.inMemoryAuthentication()
             .withUser("balajisaiveer")
-            .password("balajisaiveer")
+            .password("balaji")
             .roles("ADMIN");
-		
+			
 	}
 	
 	 @Override
@@ -37,8 +50,6 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter{
 	            .and()
 	            .formLogin()
 	            .loginPage("/login")
-	            //.loginProcessingUrl("/app-login")
-	           // .usernameParameter("username").passwordParameter("password")
 	            .defaultSuccessUrl("/")
 	            .failureUrl("/login-failure")
 	            .and()

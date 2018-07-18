@@ -4,27 +4,28 @@ import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.security.auth.message.callback.SecretKeyCallback.Request;
+//import javax.security.auth.message.callback.SecretKeyCallback.Request;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpRequest;
+//import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestAttribute;
+//import org.springframework.web.bind.annotation.PostMapping;
+//import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+//import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.balaji.modal.User;
 import com.balaji.modal.Transaction;
-import com.balaji.services.UserService;
+import com.balaji.controller.Users;
+//import com.balaji.services.UserService;
 import com.balaji.config.CustomAuth;
 import com.balaji.repository.UserRepository;
 import com.balaji.services.TransactionService;
@@ -38,8 +39,8 @@ public class Applicationcontroller {
 	@Autowired
 	TransactionRepository transactionRepository;
 
-	@Autowired 
-	private UserService userService; 
+	//@Autowired 
+	//private UserService userService; 
 	@Autowired
 	private TransactionService transactionService;
 
@@ -63,14 +64,14 @@ public class Applicationcontroller {
 	}
 
 	@RequestMapping(value="/register",method = RequestMethod.POST)
-	public String addUser(@ModelAttribute("inp") Users inp , Model model)
+	public String addUser(@ModelAttribute("abc") Users abc , Model model)
 	{
 		User user = new User();
-		user.setUsername(inp.username);
-		user.setPassword(inp.password);
+		user.setUsername(abc.username);
+		user.setPassword(abc.password);
 		user.setBalance(10000);
-		System.out.println(inp.username);
-		if(userRepository.findByUsername(inp.username).isEmpty())
+		System.out.println(abc.username);
+		if(userRepository.findByUsername(abc.username).isEmpty())
 		{
 			if(userRepository.save(user)!=null);
 			System.out.println("added to db!");
@@ -78,7 +79,7 @@ public class Applicationcontroller {
 		}
 		else
 		{
-			model.addAttribute("error",  "Invalid credentials or UserName is already taken! please choose another one.");
+			model.addAttribute("error",  "Invalid credentials.");
 			return "register";    
 		}
 		
@@ -190,20 +191,31 @@ public class Applicationcontroller {
 		else {
 			return "transactionbalancefailure";
 		}
-				
 		//transactionService.saveMyTransaction(transaction);
 	}
-	
-	
-	
 //-----------------------------------------------------------
-	
-	
+	@RequestMapping("/forgot-password")
+	public String forgotPassword()
+	{
+	return "forgot";
+	}
 
+	@RequestMapping(value="/forgot-password",method = RequestMethod.POST)
+	public String forgotReply(@ModelAttribute("abc") Users abc, Model model)
+	{
+		if(userRepository.findByUsername(abc.username).isEmpty())
+			{
+			model.addAttribute("reply", "No user is registered with this username");
+			return "afterforgot";
+			}
+		else
+			{
+			model.addAttribute("reply",  "Hi "+abc.username.toUpperCase()+"! This method has not been implemented yet check again later.");
+			return "afterforgot";
+			}	
+	}
 	
-	
-
-	
+//-----------------------------------------------------------	
 	
 //Below Methods are done for login,registration and others before using spring security
 //------------------------------------------------------------------------------
