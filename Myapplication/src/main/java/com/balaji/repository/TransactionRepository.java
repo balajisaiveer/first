@@ -9,7 +9,7 @@ import com.balaji.modal.Transaction;;
 
 public interface TransactionRepository extends CrudRepository<Transaction, Integer> {
 	
-
+	//Below query gives all the transactions from the table
 	@Query("select f from Transaction f")
 	List<Transaction> findAlls();
 }

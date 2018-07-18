@@ -29,6 +29,7 @@ public class Transaction{
 		this.sendername = sendername;
 		this.amount = amount;
 	}*/
+	
 	public int getId() {
 		return id;
 	}
@@ -72,8 +73,8 @@ public class Transaction{
 }
 
 
-
-
+//-------------------------------------------------------------------------------
+//table components for intial Transaction(Intially tried idea)
 /*public class Transaction {
 	
 	@Id
@@ -130,3 +131,4 @@ public class Transaction{
 				+ ", idsend=" + idsend + "]";
 	}
 }*/
+//-------------------------------------------------------------------

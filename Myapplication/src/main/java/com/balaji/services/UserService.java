@@ -26,8 +26,9 @@ public class UserService {
 		
 		userRepository.save(user);
 	}
+	//Below methods are for saving and deleting user and others before including spring security 
+	//-------------------------------------------------------------------
 	/*
-	
 	public List<User> showAllUsers(){
 	List<User> users = new ArrayList<User>(); 
 	for(User user:userRepository.findAll()) {
@@ -36,7 +37,7 @@ public class UserService {
 		
 	return users;
 	}*/
-	
+	//-------------------------------------------------------------------
 	/*public void deleteMyUser(int id) {
 		userRepository.deleteById(id);
 		
@@ -45,11 +46,12 @@ public class UserService {
 		return userRepository.findById(id);
 		
 	}
+	//-------------------------------------------------------------------
 	public User findByUsernameAndPassword(String username,String password) {
 		return userRepository.findByUsernameAndPassword(username, password);
 	}*/
 	
-	
+	//-------------------------------------------------------------------
 	
 	
 }

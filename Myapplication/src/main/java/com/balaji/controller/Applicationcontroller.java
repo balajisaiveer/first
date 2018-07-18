@@ -37,18 +37,23 @@ public class Applicationcontroller {
 	UserRepository userRepository;
 	@Autowired
 	TransactionRepository transactionRepository;
-	
+
 	@Autowired 
 	private UserService userService; 
 	@Autowired
 	private TransactionService transactionService;
+
+//------------------------------------------------	
+	//Below is for including a Welcomepage
 	/*@RequestMapping("/welcome") 	
 	public String Welcome(HttpServletRequest request) {
 		request.setAttribute("mode","MODE_HOME");
 		return "welcomepage";
 	}*/
 
-	//-----------------------------------------------
+
+//-----------------------------------------------
+//Below is for a new user to get registered
 	@RequestMapping(value="/register",method = RequestMethod.GET)
 	public ModelAndView register()
 	{
@@ -79,26 +84,11 @@ public class Applicationcontroller {
 		
 	}
 //----------------------------------------------------------
-	@RequestMapping(value="/view-balance")
-	public String showbalance(Model model,Principal principal)
-	{
-		List<User> usersa = new ArrayList<User>(); 
-		usersa = userRepository.findByUsername(principal.getName());
-		int a=0;
-		for ( User u : usersa) {
-			a=u.getBalance();
-		}
-		model.addAttribute("balance",a);
-		return "balance";
-	}
-	
-	
-//---------------------------------------------------------	
+//Below is for a user to get loged in	
 	@RequestMapping("/login")
 	public String login(Principal principal)
 	{	if(principal==null)
 		{
-		//order = new HashMap<String,ArrayList<OrderDetails>>();	
 		//logger.info("entered login page");
 		return "login";
 		
@@ -106,7 +96,14 @@ public class Applicationcontroller {
 	else 
 		return "redirect:/home"; 
 	}
-		
+	
+	@RequestMapping("/login-failure")
+	public String loginFail()
+	{
+	return "login-failure"; 	
+	}
+//---------------------------------------------------------	
+/*Below is to make sure user get his name in logged in home page and goes back to his home page while using back button*/ 		
 	@RequestMapping(value= {"/","/home"})
 	public String home()
 	{
@@ -118,34 +115,37 @@ public class Applicationcontroller {
 	{
 	String username=uname.toUpperCase();
 	//logger.info("User"+username+" logged in");
-
 	model.addAttribute("name",username);
 	return "home";
 	}
-	//----------------------------------------------------------
-	
-	@RequestMapping("/login-failure")
-	public String loginFail()
+//----------------------------------------------------------
+//Below is for getting the users balance
+	@RequestMapping(value="/view-balance")
+	public String showbalance(Model model,Principal principal)
 	{
-	return "login-failure"; 	
+		List<User> usersa = new ArrayList<User>(); 
+		usersa = userRepository.findByUsername(principal.getName());
+		int a=0;
+		for ( User u : usersa) {
+			a=u.getBalance();
+		}
+		model.addAttribute("balance",a);
+		return "balance";
+	}	
+//--------------------------------------------------------------
+//Below is for getting previously done transactions by the user
+	@GetMapping("/view-transactions")
+	public String showAllidTransactions(HttpServletRequest request,Principal principal) {
+		request.setAttribute("mode","MODE_A");
+		//System.out.println("balaji");
+		//for(Transaction t:transactionService.showAllidTransactions(principal))
+		//	System.out.println(t.getRusername());
+		request.setAttribute("idtransactions",transactionService.showAllidTransactions(principal));
+	return "viewtransaction";	
 	}
-//-----------------------------------------
-	/*Initial register method before spring security
-	@RequestMapping("/register")
-	public String registration(HttpServletRequest request) {
-		request.setAttribute("mode","MODE_REGISTER");
-		return "welcomepage";
-		
-	}
+//--------------------------------------------------------------
 	
-	@PostMapping("/save-user")
-	public String registerUser(@ModelAttribute User user,BindingResult bindingResult,HttpServletRequest request) {
-		userService.saveMyUser(user);
-		request.setAttribute("mode", "MODE_AFTERREGISTRATION");
-	return "welcomepage";	
-	}*/
-	
-//-------------------------------------------------------	
+//Below is for making a new transaction
 	@RequestMapping(value="/newtransaction",method = RequestMethod.GET)
 	public String newtransaction(HttpServletRequest request,Model model,Principal principal) {
 		String susername=principal.getName();
@@ -196,8 +196,34 @@ public class Applicationcontroller {
 	
 	
 	
+//-----------------------------------------------------------
 	
 	
+
+	
+	
+
+	
+	
+//Below Methods are done for login,registration and others before using spring security
+//------------------------------------------------------------------------------
+		/*Initial register method before spring security Included
+		@RequestMapping("/register")
+		public String registration(HttpServletRequest request) {
+			request.setAttribute("mode","MODE_REGISTER");
+			return "welcomepage";
+			
+		}
+		
+		@PostMapping("/save-user")
+		public String registerUser(@ModelAttribute User user,BindingResult bindingResult,HttpServletRequest request) {
+			userService.saveMyUser(user);
+			request.setAttribute("mode", "MODE_AFTERREGISTRATION");
+		return "welcomepage";	
+		}*/
+		
+//--------------------------------------------------------------------------------	
+		
 	/*@PostMapping("/login-user/save-transaction")
 	public String registerTransaction(@ModelAttribute Transaction transaction,BindingResult bindingResult,HttpServletRequest request) {
 		request.setAttribute("mode","MODE_AFTERTRANSACTION");
@@ -211,16 +237,6 @@ public class Applicationcontroller {
 		request.setAttribute("transactions",transactionService.showAllTransactions());
 		return "homepage2";	
 	}*/
-	@GetMapping("/view-transactions")
-	public String showAllidTransactions(HttpServletRequest request,Principal principal) {
-		request.setAttribute("mode","MODE_A");
-		//System.out.println("balaji");
-		//for(Transaction t:transactionService.showAllidTransactions(principal))
-		//	System.out.println(t.getRusername());
-		request.setAttribute("idtransactions",transactionService.showAllidTransactions(principal));
-	return "viewtransaction";	
-	}
-	
 	
 	/*@GetMapping("/show-users")
 	public String showAllUsers(HttpServletRequest request) {
@@ -258,5 +274,7 @@ public class Applicationcontroller {
 			return "welcomepage";
 		}
 	}*/
+//----------------------------------------------------------------------
+	
 	
 }
