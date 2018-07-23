@@ -5,6 +5,6 @@ Built-By: balaji
 Implementation-Vendor-Id: com.balaji
 Build-Jdk: 1.8.0_171
 Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
- ot-starter-parent/example
+ ot-starter-parent/firstproject
 Created-By: Maven Integration for Eclipse
 
