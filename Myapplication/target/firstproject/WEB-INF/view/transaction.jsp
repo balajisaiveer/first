@@ -19,7 +19,7 @@ h1,h2,h3,h4,h5,h6 {
     <form action="/firstproject/newtransaction" method="post">
       <p><input class="w3-input w3-padding-16" type="text" placeholder="RevicerUserName" required name="rusername"></p>
       <p><input class="w3-input w3-padding-16" type="text" placeholder="SenderUserName" required name="sendername" value="${name}" readonly> </p>
-      <p><input class="w3-input w3-padding-16" type="number" placeholder="Amount" required name="amount"></p>
+      <p><input class="w3-input w3-padding-16" type="number" min="0" placeholder="Amount" required name="amount"></p>
       <p><button class="w3-button w3-light-grey w3-section" type="submit">Complete Transaction</button></p>
     
     </form>
